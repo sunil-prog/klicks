@@ -9,7 +9,7 @@ function App() {
   const [showRegister, setShowRegister] = useState(false);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/session', { withCredentials: true })
+    axios.get(`${process.env.REACT_APP_API_URL}/api/session`, { withCredentials: true })
       .then((res) => {
         if (res.data.loggedIn) {
           setUser({ email: res.data.email });

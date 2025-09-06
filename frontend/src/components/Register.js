@@ -14,7 +14,7 @@ export default function Register({ onSuccess }) {
         setError('');
         try {
             await axios.post(
-                'http://localhost:5000/api/register',
+                `${process.env.REACT_APP_API_URL}/api/register`,
                 form,
                 { withCredentials: true }
             );

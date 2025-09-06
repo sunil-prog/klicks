@@ -7,7 +7,7 @@ export default function Dashboard({ user, onLogout }) {
 
     useEffect(() => {
         axios
-            .get('http://localhost:5000/api/session', { withCredentials: true })
+            .get(`${process.env.REACT_APP_API_URL}/api/session`, { withCredentials: true })
             .then((res) => {
                 setWelcome(`Welcome, ${res.data.email || user.email}!`);
             })
@@ -15,7 +15,7 @@ export default function Dashboard({ user, onLogout }) {
     }, [user]);
 
     const logout = async () => {
-        await axios.post('http://localhost:5000/api/logout', {}, { withCredentials: true });
+        await axios.post(`${process.env.REACT_APP_API_URL}/api/logout`, {}, { withCredentials: true });
         onLogout();
     };
 
