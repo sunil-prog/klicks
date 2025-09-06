@@ -2,13 +2,16 @@ import express, { json } from 'express';
 import session from 'express-session';
 import cors from 'cors';
 import authRoutes from './routes/auth.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
 app.use(json());
 app.use(
     cors({
-        origin: 'http://localhost:3000',
+        origin: process.env.CLIENT_URL,
         credentials: true,
     })
 );
