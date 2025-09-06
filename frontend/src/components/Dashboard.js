@@ -9,7 +9,7 @@ export default function Dashboard({ user, onLogout }) {
         axios
             .get(`${process.env.REACT_APP_API_URL}/api/session`, { withCredentials: true })
             .then((res) => {
-                setWelcome(`Welcome, ${res.data.email || user.email}!`);
+                setWelcome(`Welcome, ${user.email}!`);
             })
             .catch(() => setWelcome('Welcome!'));
     }, [user]);
